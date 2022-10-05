@@ -1,0 +1,173 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: ''
+Resources:
+  VPC1:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 172.40.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: Training
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d0ce6dc5-7a73-4460-918e-722b30d16824
+  VPC1IGW:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties:
+      Tags:
+        - Key: Name
+          Value: IGW
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 14058c0a-3746-4845-8abe-a37de62ff9b0
+  PublicSubnet1:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      AvailabilityZone: !Sub '${AWS::Region}b'
+      CidrBlock: 172.40.4.0/24
+      VpcId: !Ref VPC1
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: Public Subnet 1
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: df57ff06-23ba-48b6-a58e-10e870c7dcf0
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref VPC1
+      Tags:
+        - Key: Name
+          Value: Public
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 4da4d107-2323-4412-b35b-41c10b91895f
+  ec20796333:
+    Type: 'AWS::EC2::Route'
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref VPC1IGW
+      RouteTableId: !Ref PublicRouteTable
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 29a6d723-b34c-42cf-9c54-70228832efe1
+  ec20d22a89:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet1
+  ec27cd2a16:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      InternetGatewayId: !Ref VPC1IGW
+      VpcId: !Ref VPC1
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 53ed1f81-6213-460e-a156-945a8d5feb9c
+  C9Instance:
+    Type: 'AWS::Cloud9::EnvironmentEC2'
+    Properties:
+      AutomaticStopTimeMinutes: 30
+      Description: IoT Client Workspace
+      InstanceType: m5.large
+      ImageId: ubuntu-18.04-x86_64
+      Name: !Join 
+        - '-'
+        - - !Ref 'AWS::StackName'
+          - IoTClient
+      SubnetId: !Ref PublicSubnet1
+      OwnerArn: !Ref 'AWS::NoValue'
+      Repositories:
+        - PathComponent: /aws-iot-lab
+          RepositoryUrl: 'https://github.com/HiltonDaries/AWSIoTLab.git'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 64078b4e-dde0-4653-ae1d-5a14ad0d43ee
+Outputs:
+  AWSCloud9URL:
+    Value: !Join 
+      - ''
+      - - 'https://'
+        - !Ref 'AWS::Region'
+        - .console.aws.amazon.com/cloud9/ide/
+        - !Ref C9Instance
+        - '?region='
+        - !Ref 'AWS::Region'
+Metadata:
+  'AWS::CloudFormation::Designer':
+    14058c0a-3746-4845-8abe-a37de62ff9b0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 660
+        'y': 90
+      z: 1
+      embeds: []
+    d0ce6dc5-7a73-4460-918e-722b30d16824:
+      size:
+        width: 150
+        height: 150
+      position:
+        x: 480
+        'y': 390
+      z: 1
+      embeds: []
+    53ed1f81-6213-460e-a156-945a8d5feb9c:
+      source:
+        id: d0ce6dc5-7a73-4460-918e-722b30d16824
+      target:
+        id: 14058c0a-3746-4845-8abe-a37de62ff9b0
+      z: 1
+    4da4d107-2323-4412-b35b-41c10b91895f:
+      size:
+        width: 240
+        height: 240
+      position:
+        x: 360
+        'y': 90
+      z: 1
+      embeds:
+        - 29a6d723-b34c-42cf-9c54-70228832efe1
+    29a6d723-b34c-42cf-9c54-70228832efe1:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 390
+        'y': 150
+      z: 2
+      parent: 4da4d107-2323-4412-b35b-41c10b91895f
+      embeds: []
+      isassociatedwith:
+        - 14058c0a-3746-4845-8abe-a37de62ff9b0
+      iscontainedinside:
+        - 4da4d107-2323-4412-b35b-41c10b91895f
+        - 4da4d107-2323-4412-b35b-41c10b91895f
+    df57ff06-23ba-48b6-a58e-10e870c7dcf0:
+      size:
+        width: 240
+        height: 240
+      position:
+        x: 60
+        'y': 90
+      z: 1
+      embeds:
+        - 64078b4e-dde0-4653-ae1d-5a14ad0d43ee
+    64078b4e-dde0-4653-ae1d-5a14ad0d43ee:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 90
+        'y': 150
+      z: 2
+      parent: df57ff06-23ba-48b6-a58e-10e870c7dcf0
+      embeds: []
+      iscontainedinside:
+        - df57ff06-23ba-48b6-a58e-10e870c7dcf0
+        - df57ff06-23ba-48b6-a58e-10e870c7dcf0
