@@ -1,6 +1,6 @@
 #!/bin/bash
 # download IoT scripts 
-git clone https://github.com/HiltonDaries/AWSIoTLab.git
+#git clone https://github.com/HiltonDaries/AWSIoTLab.git
 
 # install AWS IoT Python SDK 
 pip install AWSIoTPythonSDK
