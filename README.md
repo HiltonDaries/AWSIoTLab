@@ -10,13 +10,12 @@ IoT sample:
 3. Download cert, public and private keys
 4. Extract certs and upload to C9 folder assets/lab1
 5. Rename files to certificate.pem and privateKey.pem - make sure of filenames
-6. Edit the ratchet.py file and paste code from the workshop
-7. aws iot describe-endpoint --region us-east-1 and paste the endpoint in the ratchet.py at line 18.
-8. In a terminal cd to assets/lab1
-9. pip install AWSIoTPythonSDK
-10. python ratchet.py
-11. Open mqtt test console in IoT console and subscribe to # topic
-12. See messages coming in
+6. Get your endpoint - `aws iot describe-endpoint` or `AWS IoT Console > Settings > Endpoints` 
+7. Edit the ratchet.py file and paste the endpoint in the ratchet.py at line 18.
+8. In a terminal `cd aws-iot-lab`
+9. python ratchet.py
+10. Open mqtt test console in IoT console and subscribe to # topic
+11. See messages coming in
 
 Shadow samples:
 
@@ -24,7 +23,7 @@ A:
 1. Edit the shadow1.py to add your endpoint to line 23
 2. python shadow1.py
 3. Check the mqtt test console for messages 
-4. Navigate to the shadow in the console for the ratchet thing
+4. Navigate to the shadow in the console for the "ratchet" thing
 
 B:
 1. Edit the shadow2.py to add your endpoint to line 23
