@@ -7,7 +7,7 @@ pip install AWSIoTPythonSDK
 
 # install jq
 #yum install jq -y
-apt install jq -y
+apt-get install jq -y
 
 # get endpoint address
 aws iot describe-endpoint --region us-east-1 > endpoint.json
