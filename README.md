@@ -1,8 +1,8 @@
 Setup
-1. Create stack
-2. Open C9 instance - from outputs tab
-3. Navigate to the aws-iot-labs folder: cd aws-iot-lab/
-4. Run the setup.sh - sudo ./setup.sh
+1. Create stack - AWSIoTLabCloud9.yml 
+2. Open C9 instance - URL in outputs tab
+3. Navigate to the aws-iot-labs folder: `cd aws-iot-lab/`
+4. Run the setup.sh - `sudo ./setup.sh`
 
 IoT sample:
 1. Create thing, certificates and new policy (open policy) while stack is being created
