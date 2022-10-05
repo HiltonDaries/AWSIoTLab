@@ -1,0 +1,10 @@
+{
+  "state": {
+    "desired": {
+      "MOTOR": "ON"
+    },
+    "reported": {
+      "MOTOR": "OFF"
+    }
+  }
+}
