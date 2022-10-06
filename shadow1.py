@@ -20,7 +20,7 @@ MOTOR_STATUS = "OFF"
 mqttShadowClient = AWSIoTMQTTShadowClient("ratchet")
 
 #Use the endpoint from the settings page in the IoT console
-mqttShadowClient.configureEndpoint($ENDPOINT,8883)
+mqttShadowClient.configureEndpoint("<your endpoint here>",8883)
 mqttShadowClient.configureCredentials("./rootCA.pem","./privateKey.pem","./certificate.pem")
 
 #Set up the Shadow handlers
