@@ -8,11 +8,12 @@ import ssl
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import json
 import time
+import uuid
 
 #Setup our MQTT client and security certificates
 #Make sure your certificate names match what you downloaded from AWS IoT
 
-mqttc = AWSIoTMQTTClient("1234")
+mqttc = AWSIoTMQTTClient(uuid.uuid4())
 
 #Use the endpoint from the settings page in the IoT console
 mqttc.configureEndpoint("a2cf8kt6n00n98.iot.us-west-2.amazonaws.com",8883)
