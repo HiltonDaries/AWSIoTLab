@@ -7,6 +7,7 @@ Setup
 4. Run the setup.sh - `sudo ./setup.sh`
 
 IoT samples:
+
 A:
 1. In a terminal `cd aws-iot-lab`
 2. Open demo.py, edit line 29 with your name/handle and save file
