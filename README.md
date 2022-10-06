@@ -1,15 +1,22 @@
+https://catalog.workshops.aws/aws-iot-immersionday-workshop/en-US/basics
+
 Setup
 1. Create stack - AWSIoTLabCloud9.yml 
-2. Open C9 instance - URL in outputs tab
+2. Open C9 instance - URL in outputs tab in Cloudformation console
 3. Navigate to the aws-iot-labs folder: `cd aws-iot-lab/`
 4. Run the setup.sh - `sudo ./setup.sh`
 
-IoT sample:
+IoT samples:
+A:
+8. In a terminal `cd aws-iot-lab`
+9. python demo.py
+
+B:
 1. Create thing, certificates and new policy (open policy) while stack is being created
 2. Create thing “ratchet” with unnamed shadow, auto-generate certs, create new policy
 3. Download cert, public and private keys
 4. Extract certs and upload to C9 folder assets/lab1
-5. Rename files to certificate.pem and privateKey.pem - make sure of filenames
+5. Rename files to certificate.pem and privateKey.pem - make sure of filenames as code references it
 6. Get your endpoint - `aws iot describe-endpoint` or `AWS IoT Console > Settings > Endpoints` 
 7. Edit the ratchet.py file and paste the endpoint in the ratchet.py at line 18.
 8. In a terminal `cd aws-iot-lab`
