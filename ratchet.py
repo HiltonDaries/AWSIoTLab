@@ -15,7 +15,7 @@ import time
 mqttc = AWSIoTMQTTClient("1234")
 
 #Use the endpoint from the settings page in the IoT console
-mqttc.configureEndpoint($ENDPOINT,8883)
+mqttc.configureEndpoint("<your endpoint here>",8883)
 mqttc.configureCredentials("./rootCA.pem","./privateKey.pem","./certificate.pem")
 
 #Function to encode a payload into JSON
