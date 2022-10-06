@@ -8,8 +8,9 @@ Setup
 
 IoT samples:
 A:
-8. In a terminal `cd aws-iot-lab`
-9. python demo.py
+1. In a terminal `cd aws-iot-lab`
+2. Open demo.py, edit line 29 with your name/handle and save file
+2. python demo.py
 
 B:
 1. Create thing, certificates and new policy (open policy) while stack is being created
