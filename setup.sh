@@ -22,6 +22,6 @@ wget -O privateKey1.pem "https://iot-training-thing.s3.us-west-2.amazonaws.com/p
 #echo $ENDPOINT
 
 # Clone the repository
-git clone https://github.com/aws/aws-iot-device-sdk-python-v2.git
+#git clone https://github.com/aws/aws-iot-device-sdk-python-v2.git
 # Install using Pip (use 'python' instead of 'python3' on Windows)
-python3 -m pip install ./aws-iot-device-sdk-python-v2
+#python3 -m pip install ./aws-iot-device-sdk-python-v2
