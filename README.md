@@ -10,7 +10,7 @@ IoT samples:
 
 A:
 1. In a terminal `cd aws-iot-lab`
-2. Open demo.py, edit line 29 with your name/handle and save file
+2. Open demo.py, edit line 30 with your name/handle and save file
 2. python demo.py
 
 B:
